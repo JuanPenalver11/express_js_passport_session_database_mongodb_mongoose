@@ -59,7 +59,7 @@ app.get("/api/auth/status", (request, response) => {
 });
 
 app.post("/api/auth/logout", (request, response) => {
-  if (!request.user) return sendStatus(401);
+  if (!request.user) return response.sendStatus(401);
   request.logOut((err) => {
     if (err) {
       return response.sendStatus(400);
