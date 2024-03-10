@@ -7,6 +7,7 @@ import { hashPassword } from "../passwordcryp/bcrypt.mjs";
 const route = Router();
 
 route.get("/api/user", (request, response) => {
+  if (!request.user) return response.status(401).send(request.user);
   response.status(200).send(request.user);
 });
 
